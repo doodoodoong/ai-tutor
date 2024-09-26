@@ -16,19 +16,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="ko">
-      <body className={`${inter.className} bg-gray-100`}>
-        <div className="flex h-screen">
-          <aside className="w-64 bg-white shadow-md">
-            {/* 사이드바 내용 */}
-          </aside>
-          <main className="flex-1 flex flex-col">
-            <header className="bg-white shadow-sm p-4">
-              <h1 className="text-xl font-semibold">AI 학습 도우미</h1>
-            </header>
-            {children}
-          </main>
-        </div>
-      </body>
+      <body className={`${inter.className} bg-black`}>{children}</body>
     </html>
   );
 }
