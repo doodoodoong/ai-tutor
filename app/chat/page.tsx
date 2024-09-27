@@ -94,7 +94,6 @@ export default function Home() {
     }
 
     const newMessage = { role: "user" as const, content: input };
-    const currentInput = input; // 현재 입력값 저장
     setIsLoading(true);
 
     try {
