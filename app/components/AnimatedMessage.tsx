@@ -2,7 +2,6 @@ import React, { useRef, useEffect, useState } from "react";
 import ReactMarkdown from "react-markdown";
 import rehypeRaw from "rehype-raw";
 import rehypeSanitize from "rehype-sanitize";
-import TypingEffect from "./TypingEffect";
 
 interface AnimatedMessageProps {
   role: string;
@@ -47,36 +46,32 @@ const AnimatedMessage: React.FC<AnimatedMessageProps> = ({
         }`}
       >
         {shouldAnimate ? (
-          <TypingEffect text={content}>
-            {(text) => (
-              <ReactMarkdown
-                rehypePlugins={[rehypeRaw, rehypeSanitize]}
-                components={{
-                  code({ node, inline, className, children, ...props }) {
-                    const match = /language-(\w+)/.exec(className || "");
-                    return !inline && match ? (
-                      <pre
-                        className={`bg-gray-800 text-white p-2 rounded ${className}`}
-                      >
-                        <code className={`language-${match[1]}`} {...props}>
-                          {children}
-                        </code>
-                      </pre>
-                    ) : (
-                      <code
-                        className={`bg-gray-200 text-gray-800 px-1 rounded ${className}`}
-                        {...props}
-                      >
-                        {children}
-                      </code>
-                    );
-                  },
-                }}
-              >
-                {text}
-              </ReactMarkdown>
-            )}
-          </TypingEffect>
+          <ReactMarkdown
+            rehypePlugins={[rehypeRaw, rehypeSanitize]}
+            components={{
+              code({ node, inline, className, children, ...props }) {
+                const match = /language-(\w+)/.exec(className || "");
+                return !inline && match ? (
+                  <pre
+                    className={`bg-gray-800 text-white p-2 rounded ${className}`}
+                  >
+                    <code className={`language-${match[1]}`} {...props}>
+                      {children}
+                    </code>
+                  </pre>
+                ) : (
+                  <code
+                    className={`bg-gray-200 text-gray-800 px-1 rounded ${className}`}
+                    {...props}
+                  >
+                    {children}
+                  </code>
+                );
+              },
+            }}
+          >
+            {content}
+          </ReactMarkdown>
         ) : (
           <ReactMarkdown
             rehypePlugins={[rehypeRaw, rehypeSanitize]}
