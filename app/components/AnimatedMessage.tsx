@@ -15,8 +15,8 @@ const AnimatedMessage: React.FC<AnimatedMessageProps> = ({
   isNew,
 }) => {
   const messageRef = useRef<HTMLDivElement>(null);
+  // eslint-disable-next-line
   const [shouldAnimate, setShouldAnimate] = useState(isNew);
-
   useEffect(() => {
     if (messageRef.current && isNew) {
       messageRef.current.style.opacity = "0";
@@ -49,6 +49,7 @@ const AnimatedMessage: React.FC<AnimatedMessageProps> = ({
           <ReactMarkdown
             rehypePlugins={[rehypeRaw, rehypeSanitize]}
             components={{
+              // eslint-disable-next-line
               code({ node, inline, className, children, ...props }) {
                 const match = /language-(\w+)/.exec(className || "");
                 return !inline && match ? (
@@ -76,6 +77,7 @@ const AnimatedMessage: React.FC<AnimatedMessageProps> = ({
           <ReactMarkdown
             rehypePlugins={[rehypeRaw, rehypeSanitize]}
             components={{
+              // eslint-disable-next-line
               code({ node, inline, className, children, ...props }) {
                 const match = /language-(\w+)/.exec(className || "");
                 return !inline && match ? (
