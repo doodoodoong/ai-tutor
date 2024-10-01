@@ -49,8 +49,7 @@ const AnimatedMessage: React.FC<AnimatedMessageProps> = ({
           <ReactMarkdown
             rehypePlugins={[rehypeRaw, rehypeSanitize]}
             components={{
-              // eslint-disable-next-line
-              code({ node, inline, className, children, ...props }) {
+              code({ node, inline, className, children, ...props }: any) {
                 const match = /language-(\w+)/.exec(className || "");
                 return !inline && match ? (
                   <pre
@@ -77,8 +76,7 @@ const AnimatedMessage: React.FC<AnimatedMessageProps> = ({
           <ReactMarkdown
             rehypePlugins={[rehypeRaw, rehypeSanitize]}
             components={{
-              // eslint-disable-next-line
-              code({ node, inline, className, children, ...props }) {
+              code({ node, inline, className, children, ...props }: any) {
                 const match = /language-(\w+)/.exec(className || "");
                 return !inline && match ? (
                   <pre
