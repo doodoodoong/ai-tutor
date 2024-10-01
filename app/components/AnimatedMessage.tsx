@@ -48,72 +48,22 @@ const AnimatedMessage: React.FC<AnimatedMessageProps> = ({
         {shouldAnimate ? (
           <ReactMarkdown
             rehypePlugins={[rehypeRaw, rehypeSanitize]}
-            components={{
-              code({
-                inline,
-                className,
-                children,
-                ...props
-              }: {
-                inline: boolean;
-                className?: string;
-                children: React.ReactNode;
-              }) {
-                const match = /language-(\w+)/.exec(className || "");
-                return !inline && match ? (
-                  <pre
-                    className={`bg-gray-800 text-white p-2 rounded ${className}`}
-                  >
-                    <code className={`language-${match[1]}`} {...props}>
-                      {children}
-                    </code>
-                  </pre>
-                ) : (
-                  <code
-                    className={`bg-gray-200 text-gray-800 px-1 rounded ${className}`}
-                    {...props}
-                  >
-                    {children}
-                  </code>
-                );
-              },
-            }}
+            components={
+              {
+                // 마크다운 관련 컴포넌트 삭제됨
+              }
+            }
           >
             {content}
           </ReactMarkdown>
         ) : (
           <ReactMarkdown
             rehypePlugins={[rehypeRaw, rehypeSanitize]}
-            components={{
-              code({
-                inline,
-                className,
-                children,
-                ...props
-              }: {
-                inline: boolean;
-                className?: string;
-                children: React.ReactNode;
-              }) {
-                const match = /language-(\w+)/.exec(className || "");
-                return !inline && match ? (
-                  <pre
-                    className={`bg-gray-800 text-white p-2 rounded ${className}`}
-                  >
-                    <code className={`language-${match[1]}`} {...props}>
-                      {children}
-                    </code>
-                  </pre>
-                ) : (
-                  <code
-                    className={`bg-gray-200 text-gray-800 px-1 rounded ${className}`}
-                    {...props}
-                  >
-                    {children}
-                  </code>
-                );
-              },
-            }}
+            components={
+              {
+                // 마크다운 관련 컴포넌트 삭제됨
+              }
+            }
           >
             {content}
           </ReactMarkdown>
