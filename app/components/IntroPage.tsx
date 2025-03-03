@@ -6,7 +6,7 @@ const IntroPage: React.FC = () => {
   return (
     <div className="flex flex-col items-center justify-center min-h-screen bg-black text-white">
       <div className="text-center mb-8">
-        <h1 className="text-6xl font-bold mb-2">증도GPT</h1>
+        <h1 className="text-6xl font-bold mb-2">장산GPT</h1>
         <h2 className="text-2xl">공부하다 필요할 때 도움을 받읍시다!</h2>
       </div>
       <div className="mb-8">
